@@ -41,6 +41,10 @@ Agent 记忆系统——每日日志、MEMORY.md、云端画像、对话搜索�
 
 ## 使用方法
 
+```bash
+npx skills@latest add kenpusney/palest-ink
+```
+
 1. 将 `assets/INK.md` 复制到项目根目录（或 `.agents/INK.md`）。
 2. 在四个层级下填入文件和目录路径。
 3. Agent 在会话开始时读取 INK.md，按路径加载。

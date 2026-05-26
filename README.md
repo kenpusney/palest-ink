@@ -55,6 +55,10 @@ structure, process, and history.
 
 ## Usage
 
+```bash
+npx skills@latest add kenpusney/palest-ink
+```
+
 1. Copy `assets/INK.md` to your project root (or `.agents/INK.md`).
 2. Fill in files and directories under each of the four layers.
 3. The agent reads INK.md at session start and follows the paths.
