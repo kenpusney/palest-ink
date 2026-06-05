@@ -1,0 +1,11 @@
+theme: jekyll-theme-primer
+
+github:
+  private: false
+  source:
+    branch: "master"
+    path: "/"
+  repository_url: "https://github.com/kenpusney/palest-ink"
+
+title: "Palest Ink - Memoryless Architecture"
+description: "The palest ink is better than the best memory - A memoryless document architecture for AI agents."
