@@ -1,0 +1,9 @@
+{
+  "eval_id": 1,
+  "eval_name": "bootstrapping",
+  "expectations": [
+    {"text": "INK.md 被创建在项目根目录", "passed": true, "evidence": "文件存在于 /tmp/palest-ink-eval/eval-1-bootstrapping/project/INK.md"},
+    {"text": "INK.md 包含四个层级 section", "passed": true, "evidence": "grep 找到 4 个 ## 标题"},
+    {"text": "建议的映射包含项目现有文件", "passed": true, "evidence": "包含 README.md, package.json, src/index.ts 的映射"}
+  ]
+}

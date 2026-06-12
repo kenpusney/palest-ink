@@ -1,0 +1,9 @@
+{
+  "eval_id": 2,
+  "eval_name": "selective-load",
+  "prompt": "这个项目的 API 认证是怎么实现的？",
+  "assertions": [
+    {"text": "回答包含 JWT + Refresh Token", "check": "output_contains:JWT|Refresh Token"},
+    {"text": "回答基于 architecture.md 的内容", "check": "output_contains:15 分钟|7 天|HttpOnly Cookie"}
+  ]
+}

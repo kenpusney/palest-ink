@@ -1,0 +1,9 @@
+{
+  "eval_id": 3,
+  "eval_name": "write-back",
+  "prompt": "刚才排查的那个数据库连接池泄漏问题，记一下。问题原因是连接用完后没有调用 release()，导致连接池被耗尽。修复方式是在 finally 块里加了 release()。",
+  "assertions": [
+    {"text": "调试记录写入 debug-notes.md", "check": "file_contains:docs/operational/debug-notes.md:连接池|release"},
+    {"text": "INK.md 未被修改", "check": "file_unchanged:INK.md"}
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "skill_name": "palest-ink",
+  "evals": [
+    {
+      "id": 1,
+      "name": "bootstrapping",
+      "prompt": "帮我用 Palest Ink 整理一下这个项目的文档",
+      "project_path": "/tmp/palest-ink-eval/eval-1-bootstrapping/project",
+      "expected_output": "复制 INK.md 到项目根目录，扫描现有文件，按四层分类建议映射，让用户确认",
+      "assertions": [
+        {
+          "text": "INK.md 被创建在项目根目录",
+          "check": "file_exists:INK.md"
+        },
+        {
+          "text": "INK.md 包含四个层级 section（Conceptual, Structural, Behavioral, Operational）",
+          "check": "file_contains:INK.md:## Conceptual,## Structural,## Behavioral,## Operational"
+        },
+        {
+          "text": "建议的映射包含项目现有文件（如 package.json, src/, README.md）",
+          "check": "file_contains:INK.md:package.json|src/|README.md"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "selective-load",
+      "prompt": "这个项目的 API 认证是怎么实现的？",
+      "project_path": "/tmp/palest-ink-eval/eval-2-selective-load/project",
+      "expected_output": "读取 INK.md，加载 Conceptual 层的 architecture.md，基于其中的认证方案回答",
+      "assertions": [
+        {
+          "text": "回答包含 JWT + Refresh Token 双令牌机制",
+          "check": "output_contains:JWT|Refresh Token"
+        },
+        {
+          "text": "回答基于 architecture.md 的内容而非编造",
+          "check": "output_contains:15 分钟|7 天|HttpOnly Cookie"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "write-back",
+      "prompt": "刚才排查的那个数据库连接池泄漏问题，记一下。问题原因是连接用完后没有调用 release()，导致连接池被耗尽。修复方式是在 finally 块里加了 release()。",
+      "project_path": "/tmp/palest-ink-eval/eval-3-write-back/project",
+      "expected_output": "将调试记录写入 docs/operational/debug-notes.md，不修改 INK.md",
+      "assertions": [
+        {
+          "text": "调试记录被写入 docs/operational/debug-notes.md",
+          "check": "file_contains:docs/operational/debug-notes.md:连接池|release"
+        },
+        {
+          "text": "INK.md 未被修改",
+          "check": "file_unchanged:INK.md"
+        }
+      ]
+    }
+  ]
+}

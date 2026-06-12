@@ -1,0 +1,8 @@
+{
+  "eval_id": 2,
+  "eval_name": "selective-load",
+  "expectations": [
+    {"text": "回答包含 JWT + Refresh Token", "passed": true, "evidence": "summary 中明确提到 JWT + Refresh Token dual-token authentication"},
+    {"text": "回答基于 architecture.md 的内容", "passed": true, "evidence": "包含 15 分钟、7 天、HttpOnly Cookie 等具体细节，与 architecture.md 一致"}
+  ]
+}

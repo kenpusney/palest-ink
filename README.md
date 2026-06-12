@@ -1,6 +1,6 @@
 # Palest Ink
 
-> The palest ink is better than the best memory.  
+> The palest ink is better than the strongest memory.  
 > 好记性不如烂笔头。
 
 [中文](./README.zh.md)
@@ -11,17 +11,20 @@ explicit, user-declared project documents organized into four layers.
 
 ## Why
 
-Agent memory systems — daily logs, MEMORY.md, cloud profiles, conversation
-search — share the same fatal flaws:
+Implicit memory systems — Mem0, MemPalace, auto-summarizing MEMORY files,
+vector-database-backed memory plugins — share the same fatal flaws:
 
-- **Silent drift.** Information goes stale without warning. You cannot tell
-  what the agent still believes versus what is outdated.
-- **Context pollution.** Every session loads accumulated memory, whether
-  relevant or not, wasting context window and diluting focus.
-- **No inspection.** Memory is hidden state. You can't open a file and read
-  what the agent remembers, verify its accuracy, or delete what's wrong.
-- **Agent-only value.** Memory files serve the agent. They don't help
-  collaborators, onboard new team members, or survive tool migration.
+- **Uncontrollable accumulation.** Auto-summarizing systems keep organizing
+  and rewriting memory on their own, so you can never be sure what's in
+  there, whether it's still relevant, or whether it should exist at all.
+- **Opaque storage.** Memories live in vector databases or compressed
+  summaries you can't directly read, edit, or verify.
+- **Size limits force lossy compression.** Memory systems have token or
+  storage caps. When they fill up, old information is silently dropped or
+  merged — you don't know what was lost.
+- **Agent-only value.** Memory is structured for the agent, not for humans.
+  It doesn't help collaborators, onboard new team members, or survive
+  tool migration.
 
 Documents fix all of this. A document is inspectable, editable, deletable,
 version-controllable, and useful to humans as well as agents.
@@ -59,11 +62,11 @@ structure, process, and history.
 npx skills@latest add kenpusney/palest-ink
 ```
 
-1. Copy `assets/INK.md` to your project root (or `.agents/INK.md`).
+1. Copy `skills/palest-ink/assets/INK.md` to your project root (or `.agents/INK.md`).
 2. Fill in files and directories under each of the four layers.
 3. The agent reads INK.md at session start and follows the paths.
-4. The agent writes discoveries to the appropriate layer and session
-   summaries to operational paths at session end.
+4. The agent writes discoveries to the appropriate layer. Operational
+   entries are written whenever operational work is done.
 5. You can change INK.md at any time. The agent cannot without your approval.
 
 ### Example INK.md
@@ -99,11 +102,10 @@ There is no prescribed layout — INK.md reflects your project, not a template.
 
 | Automatic Memory | Palest Ink |
 |---|---|
-| Hidden, uninspectable state | Open, readable files |
-| Accumulates indefinitely | Curated and prunable |
+| Opaque (vector DB, compressed summaries) | Open, readable plain text files |
+| Auto-accumulates, hard to control | Curated by the user, prunable |
+| Size limits force lossy compression | No size limits, files grow as needed |
 | Agent-only value | Human + agent value |
-| Context window bloat | Progressive disclosure |
-| Drifts silently | Explicitly maintained |
 | Tied to tool/platform | Portable, plain text |
 
 ## Limitations
