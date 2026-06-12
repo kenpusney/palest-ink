@@ -1,0 +1,8 @@
+{
+  "eval_id": 3,
+  "eval_name": "write-back",
+  "expectations": [
+    {"text": "调试记录写入 debug-notes.md", "passed": true, "evidence": "文件包含连接池和 release() 记录"},
+    {"text": "INK.md 未被修改", "passed": true, "evidence": "SHA256 哈希一致"}
+  ]
+}

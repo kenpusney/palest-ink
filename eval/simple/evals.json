@@ -13,6 +13,10 @@
           "check": "file_exists:INK.md"
         },
         {
+          "text": "INK.md 包含 Guidance section",
+          "check": "file_contains:INK.md:Guidance"
+        },
+        {
           "text": "INK.md 包含四个层级 section（Conceptual, Structural, Behavioral, Operational）",
           "check": "file_contains:INK.md:## Conceptual,## Structural,## Behavioral,## Operational"
         },

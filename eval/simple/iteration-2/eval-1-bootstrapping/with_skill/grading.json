@@ -1,0 +1,10 @@
+{
+  "eval_id": 1,
+  "eval_name": "bootstrapping",
+  "expectations": [
+    {"text": "INK.md 被创建在项目根目录", "passed": true, "evidence": "文件存在"},
+    {"text": "INK.md 包含 Guidance section", "passed": true, "evidence": "grep Guidance: 1 match"},
+    {"text": "INK.md 包含四个层级 section", "passed": true, "evidence": "5 个 ## section (含 Guidance)"},
+    {"text": "映射包含项目现有文件", "passed": true, "evidence": "包含 README.md, package.json, src/index.ts"}
+  ]
+}

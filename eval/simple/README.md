@@ -66,3 +66,60 @@
 | **Total** | **7/7** | **364s** | **54.5k** |
 
 Skill 验证通过，核心行为（引导、按需加载、写回分类、INK.md 保护）均符合预期。
+
+## Iteration 2
+
+SKILL.md 更新后重跑。变更：Follow INK.md、search task-relevant documents、Guidance section、cross-references。
+
+3 个场景，8 条 assertions，全部通过。
+
+### Eval 1: 首次引导
+
+**Assertions** (4/4 ✅):
+- INK.md 被创建在项目根目录
+- INK.md 包含 Guidance section（iteration-1 没有）
+- INK.md 包含四个层级 section
+- 映射包含项目现有文件
+
+**Observations**: Agent 创建了 8 个文档（含 ADR），在 INK.md 中加入 Guidance section 和 cross-references。比 iteration-1 更结构化。
+
+| Metric | Value | vs Iter-1 |
+|--------|-------|-----------|
+| Duration | 327s | +195s |
+| Tokens | 23.5k | +5k |
+
+### Eval 2: 按需加载
+
+**Assertions** (3/3 ✅):
+- 回答包含 JWT + Refresh Token
+- 基于 architecture.md 内容回答
+- 选择性加载（3 个文档，跳过空的 structural）
+
+**Observations**: Agent 加载了 3 个文档并明确说明每个的用途。未使用 Grep/Glob（项目只有 3 个文档，直接读取足够）。
+
+| Metric | Value | vs Iter-1 |
+|--------|-------|-----------|
+| Duration | 130s | -30s |
+| Tokens | 18.4k | -1k |
+
+### Eval 3: 写回分类
+
+**Assertions** (2/2 ✅):
+- 调试记录已在 debug-notes.md 中（iteration-1 写入的）
+- INK.md 未被修改
+
+**Observations**: Agent 检查了已有内容，发现记录已存在，没有重复写入。正确遵循"avoid duplicating content"。
+
+| Metric | Value | vs Iter-1 |
+|--------|-------|-----------|
+| Duration | 113s | +41s |
+| Tokens | 17.8k | +1k |
+
+## Summary
+
+| Iteration | Assertions | Total Duration | Total Tokens |
+|-----------|-----------|---------------|-------------|
+| Iter-1 | 7/7 ✅ | 364s | 54.5k |
+| Iter-2 | 8/8 ✅ | 570s | 59.7k |
+
+Iteration-2 新增了 Guidance section 验证，Agent 行为更结构化（创建 ADR、使用 cross-references、避免重复写入）。

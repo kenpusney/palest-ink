@@ -56,6 +56,13 @@ npx skills@latest add kenpusney/palest-ink
 ```markdown
 # INK.md
 
+## Guidance
+
+- 写具体：用 "Flask 2.3.1 + SQLAlchemy 2.0" 而不是 "一个 Web 框架"
+- 每个文档控制在 200 行以内，超出则拆分
+- 用交叉引用：`see also: behavioral/auth-patterns.md#session-management`
+- 记录变更原因，不只记最终状态
+
 ## Conceptual
 - docs/conceptual/design-principles.md
 - docs/conceptual/adr/
@@ -76,6 +83,8 @@ npx skills@latest add kenpusney/palest-ink
 - docs/operational/sessions/
 - docs/operational/debugging-notes.md
 ```
+
+Guidance 区设定文档的写作规范——颗粒度、语气、交叉引用格式、记录什么内容。根据项目自行调整。
 
 也可以指向单个文件而非目录，或两者混用。没有预设布局——INK.md 反映的是你的项目，不是模板。
 

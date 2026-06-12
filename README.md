@@ -74,6 +74,13 @@ npx skills@latest add kenpusney/palest-ink
 ```markdown
 # INK.md
 
+## Guidance
+
+- Be specific: write "Flask 2.3.1 with SQLAlchemy 2.0" not "a web framework"
+- Keep each document under 200 lines; split if larger
+- Use cross-references: `see also: behavioral/auth-patterns.md#session-management`
+- Record what changed and why, not just the final state
+
 ## Conceptual
 - docs/conceptual/design-principles.md
 - docs/conceptual/adr/
@@ -94,6 +101,10 @@ npx skills@latest add kenpusney/palest-ink
 - docs/operational/sessions/
 - docs/operational/debugging-notes.md
 ```
+
+The Guidance section sets expectations for how documents should be written —
+granularity, tone, cross-reference format, and what to record. Customize it
+for your project.
 
 You can also point to individual files instead of directories, or mix both.
 There is no prescribed layout — INK.md reflects your project, not a template.
